@@ -40,6 +40,8 @@ class Player(CircleShape):
         if keys[pygame.K_SPACE]:
             self.shoot(dt)
 
+        self.timer -= dt
+
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
 
@@ -49,7 +51,6 @@ class Player(CircleShape):
 
     def shoot(self, dt):
         if self.timer > 0:
-            self.timer -= dt
             return
 
         self.timer = PLAYER_SHOT_COOLDOWN
